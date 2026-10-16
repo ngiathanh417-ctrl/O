@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        romanticPink: '#ff3366',
+                        softPink: '#ff6685',
+                        lightPink: '#ffb3c1',
+                        roseGold: '#ffd1dc',
+                        warmBurgundy: '#4a0e17',
+                        goldGlow: '#ffd700'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 50% 45%, #ff758c 0%, #ff4d6d 28%, #c9184a 60%, #4a0018 100%);
+            color: #fff0f3;
+            touch-action: manipulation;
+        }
+
+        .font-romantic { font-family: 'Dancing Script', cursive; }
+        .font-serif-title { font-family: 'Playfair Display', serif; }
+
+        .neon-glow-pink {
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.95), 0 0 40px rgba(255, 117, 140, 0.8), 0 0 60px rgba(255, 179, 193, 0.6);
+        }
+        .neon-glow-gold {
+            text-shadow: 0 0 16px rgba(255, 215, 0, 0.95), 0 0 32px rgba(255, 182, 193, 0.7);
+        }
+
+        /* Running Cat Animations */
+        @keyframes catBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(-4deg); }
+        }
+        @keyframes tailWag {
+            0%, 100% { transform: rotate(-12deg); }
+            50% { transform: rotate(18deg); }
+        }
+        @keyframes legMove1 {
+            0%, 100% { transform: rotate(-25deg); }
+            50% { transform: rotate(30deg); }
+        }
+        @keyframes legMove2 {
+            0%, 100% { transform: rotate(25deg); }
+            50% { transform: rotate(-30deg); }
+        }
+
+        .cat-anim-body { animation: catBounce 0.3s infinite ease-in-out; transform-origin: bottom center; }
+        .cat-anim-tail { animation: tailWag 0.35s infinite ease-in-out; transform-origin: 20px 65px; }
+        .cat-leg-front { animation: legMove1 0.3s infinite ease-in-out; transform-origin: 55px 70px; }
+        .cat-leg-back { animation: legMove2 0.3s infinite ease-in-out; transform-origin: 30px 70px; }
+
+        /* Floating Side Red Hearts Animation */
+        @keyframes floatSideHeart {
+            0% { transform: translateY(100vh) scale(0.6) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.95; }
+            80% { opacity: 0.95; }
+            100% { transform: translateY(-10vh) scale(1.25) rotate(360deg); opacity: 0; }
+        }
+        .side-heart-left, .side-heart-right {
+            position: fixed;
+            z-index: 15;
+            pointer-events: none;
+            animation: floatSideHeart 5s infinite linear;
+        }
+        .side-heart-left { left: 3vw; }
+        .side-heart-right { right: 3vw; }
+
+        /* Professional 3D Envelope & Letter Opening Styles */
+        .envelope-perspective-wrapper {
+            perspective: 1200px;
+            will-change: transform, opacity;
+        }
+
+        .envelope-3d-card {
+            position: relative;
+            width: 330px;
+            height: 220px;
+            background: linear-gradient(135deg, #c9184a 0%, #800f2f 50%, #590d22 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 51, 102, 0.6), inset 0 0 25px rgba(255, 215, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        @media (min-width: 640px) {
+            .envelope-3d-card { width: 420px; height: 260px; }
+        }
+
+        .envelope-3d-card:hover {
+            box-shadow: 0 35px 75px rgba(0, 0, 0, 0.8), 0 0 65px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Top Flap */
+        .envelope-flap-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 130px;
+            background: linear-gradient(180deg, #ff4d6d 0%, #c9184a 80%, #a71d3f 100%);
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 25;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+
+        /* Wax Seal Button */
+        .wax-seal-pro {
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            transform: translate3d(-50%, 0, 0) scale(1);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #ffe600, #ff3366, #590d22);
+            border: 2.5px solid #fff2cc;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+            animation: sealGlowPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes sealGlowPulse {
+            0%, 100% { transform: translate3d(-50%, 0, 0) scale(1); filter: drop-shadow(0 0 10px #ffd700); }
+            50% { transform: translate3d(-50%, 0, 0) scale(1.08); filter: drop-shadow(0 0 22px #ff3366); }
+        }
+
+        .envelope-perspective-wrapper.opening .wax-seal-pro {
+            transform: translate3d(-50%, 0, 0) scale(0) rotate(360deg);
+            opacity: 0;
+        }
+
+        .envelope-perspective-wrapper.opening .envelope-flap-3d {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-perspective-wrapper.opening .envelope-3d-card {
+            opacity: 0;
+            transform: translate3d(0, 100px, 0) scale(0.7);
+            pointer-events: none;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* Extracted Parchment Letter Card */
+        .extracted-letter-pro {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 92vw;
+            max-width: 580px;
+            height: 480px;
+            background: linear-gradient(145deg, rgba(89, 13, 34, 0.98), rgba(42, 4, 14, 0.99));
+            border: 2px solid #ffd700;
+            border-radius: 24px;
+            transform: translate3d(-50%, -50%, 0) scale(0.1) rotateX(20deg);
+            opacity: 0;
+            z-index: 50;
+            pointer-events: none;
+            will-change: transform, opacity;
+            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.75s ease;
+            box-shadow: 0 35px 80px rgba(0,0,0,0.9), 0 0 60px rgba(255, 51, 102, 0.7), inset 0 0 30px rgba(255, 215, 0, 0.25);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .envelope-perspective-wrapper.opening .extracted-letter-pro {
+            transform: translate3d(-50%, -50%, 0) scale(1) rotateX(0deg);
+            opacity: 1;
+            pointer-events: auto;
+            transition-delay: 0.35s;
+        }
+
+        .letter-inner-reveal {
+            opacity: 0;
+            transition: opacity 0.6s ease 0.8s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .envelope-perspective-wrapper.opening .letter-inner-reveal { opacity: 1; }
+
+        .decor-heart {
+            position: fixed;
+            z-index: 40;
+            cursor: pointer;
+            pointer-events: auto;
+            user-select: none;
+            filter: drop-shadow(0 0 12px rgba(255, 51, 102, 0.9));
+            animation: floatUpDown 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatUpDown {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: rgba(89, 13, 34, 0.4); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 215, 0, 0.7); border-radius: 3px; }
+    </style>
+</head>
+<body class="w-screen h-screen relative flex items-center justify-center select-none overflow-hidden">
+
+    <canvas id="experienceCanvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+    <div id="decorHeartsLayer" class="fixed inset-0 pointer-events-none z-40 overflow-hidden"></div>
+
+    <!-- Continuous Running Side Red Hearts -->
+    <div class="fixed inset-0 pointer-events-none z-15 overflow-hidden">
+        <div class="side-heart-left" style="animation-delay: 0s;"><svg class="w-8 h-8 text-pink-500 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <div class="side-heart-left" style="animation-delay: 2.5s;"><svg class="w-9 h-9 text-rose-400 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <div class="side-heart-right" style="animation-delay: 1.2s;"><svg class="w-8 h-8 text-pink-500 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <div class="side-heart-right" style="animation-delay: 3.8s;"><svg class="w-10 h-10 text-rose-300 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+    </div>
+
+    <!-- Main Interactive Area -->
+    <div class="relative z-20 flex flex-col items-center justify-center w-full h-full p-4 text-center">
+
+        <!-- Stage 1: Countdown -->
+        <div id="countdownContainer" class="flex flex-col items-center justify-center transition-all duration-700 ease-out">
+            <div class="text-xs sm:text-sm italic tracking-[0.25em] text-roseGold mb-2 font-serif-title uppercase">
+                ✦ Chào mừng ngày Phụ Nữ Việt Nam 20/10 ✦
+            </div>
+            <div id="countdownSubtitle" class="font-romantic text-2xl sm:text-3xl text-lightPink mb-4 tracking-wide">
+                3 - Trao gửi yêu thương...
+            </div>
+            <div id="countdownDisplay" class="font-serif-title text-8xl sm:text-9xl font-bold neon-glow-pink text-romanticPink transition-transform duration-200">
+                3
+            </div>
+            <div class="text-xs text-roseGold/80 mt-5 font-serif-title tracking-widest italic">
+                ✦ Ánh sáng lãng mạn và ngàn đóa hoa đang kết nối ✦
+            </div>
+        </div>
+
+        <!-- Stage 2: Fast Cat Loading Screen -->
+        <div id="catLoadingContainer" class="absolute z-30 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-700 ease-out scale-95">
+            <div class="relative w-80 sm:w-96 p-6 rounded-2xl bg-gradient-to-b from-warmBurgundy/90 to-pink-950/90 border border-lightPink/60 backdrop-blur-md shadow-2xl flex flex-col items-center">
+                
+                <div class="relative w-48 h-36 mb-2 flex items-center justify-center overflow-visible">
+                    <svg class="w-44 h-36 cat-anim-body filter drop-shadow-lg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="animate-pulse">
+                            <path d="M 30 25 C 27 20 20 22 20 28 C 20 35 30 40 30 40 C 30 40 40 35 40 28 C 40 22 33 20 30 25 Z" fill="#ff3366"/>
+                            <path d="M 165 30 L 168 38 L 176 40 L 168 42 L 165 50 L 162 42 L 154 40 L 162 38 Z" fill="#ffd700"/>
+                        </g>
+                        <ellipse cx="105" cy="135" rx="45" ry="7" fill="#1f030a" opacity="0.4"/>
+                        <g transform="translate(15, 15)">
+                            <path d="M 35 70 Q 20 65 15 50 Q 12 40 22 45 Q 28 55 38 65 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="cat-anim-tail"/>
+                            <path d="M 45 75 C 40 90 35 105 40 110 C 45 110 50 95 55 85 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5" class="cat-leg-back"/>
+                            <path d="M 55 75 C 55 92 62 108 67 105 C 72 102 65 88 60 78 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5" class="cat-leg-front"/>
+                            <path d="M 35 55 C 30 45 45 35 60 40 C 75 35 95 45 100 60 C 105 75 90 90 60 85 C 40 85 38 70 35 55 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5"/>
+                            <path d="M 85 75 C 80 92 78 108 83 105 C 88 102 90 90 92 80 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5" class="cat-leg-front"/>
+                            <path d="M 95 75 C 98 90 105 102 110 98 C 115 94 105 82 100 75 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5" class="cat-leg-back"/>
+                            <g transform="translate(90, 32)">
+                                <path d="M -5 15 L -20 -5 C -22 -10 -12 -12 -8 -5 L 5 10 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5"/>
+                                <path d="M -2 12 L -14 -2 C -15 -5 -9 -7 -6 -3 L 3 8 Z" fill="#ffb3c1"/>
+                                <path d="M 25 15 L 38 -5 C 40 -10 30 -12 26 -5 L 15 10 Z" fill="#ffffff" stroke="#2d1522" stroke-width="2.5"/>
+                                <path d="M 22 12 L 32 -2 C 33 -5 27 -7 24 -3 L 14 8 Z" fill="#ffb3c1"/>
+                                <ellipse cx="12" cy="18" rx="20" ry="17" fill="#ffffff" stroke="#2d1522" stroke-width="2.5"/>
+                                <circle cx="5" cy="15" r="2.2" fill="#2d1522"/>
+                                <circle cx="19" cy="15" r="2.2" fill="#2d1522"/>
+                                <polygon points="11,19 13,19 12,21" fill="#ff3366"/>
+                                <path d="M 9 23 Q 12 26 15 23" stroke="#2d1522" stroke-width="2" fill="none"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="font-romantic text-xl sm:text-2xl text-lightPink mb-4 text-center">
+                    Cây và hoa đa sắc đang nở rộ...
+                </div>
+
+                <div class="w-full bg-pink-950/80 rounded-full h-3.5 mb-2.5 overflow-hidden border border-lightPink/40 relative">
+                    <div id="catProgressBar" class="bg-gradient-to-r from-romanticPink via-softPink to-goldGlow h-full w-0 transition-all duration-150 rounded-full"></div>
+                </div>
+
+                <div id="catTimerText" class="font-serif-title text-xs text-roseGold tracking-widest italic">
+                    Đang tải hoa nở...
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 3: Convergence Status -->
+        <div id="formationStatus" class="absolute bottom-10 text-center hidden opacity-0 transition-opacity duration-700 ease-out">
+            <p id="formationStatusText" class="font-serif-title italic text-sm sm:text-base text-lightPink tracking-wider animate-pulse">
+                ✦ Ánh sáng hội tụ từ muôn nơi, vẽ nên đóa hồng trái tim kỳ diệu ✦
+            </p>
+        </div>
+
+        <!-- Stage 4: Professional 3D Envelope & Letter Section -->
+        <div id="envelopeSection" class="absolute z-30 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-1000 ease-out transform scale-90">
+            <div id="interactiveEnvelope" class="envelope-perspective-wrapper cursor-pointer">
+                <div id="envelope3DCard" class="envelope-3d-card">
+                    <div class="envelope-flap-3d"></div>
+                    
+                    <!-- Wax Seal Button -->
+                    <div class="wax-seal-pro">
+                        <svg class="w-8 h-8 text-yellow-100 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+
+                    <div class="absolute inset-0 flex flex-col items-center justify-end pb-6 pointer-events-none z-20">
+                        <div class="text-xs font-serif-title tracking-[0.3em] text-roseGold/90 uppercase mb-1">
+                            ✦ Món Quà Trao Tặng ✦
+                        </div>
+                        <h3 class="font-serif-title text-2xl sm:text-3xl text-white font-bold tracking-wide neon-glow-gold">Thiệp Hồng 20/10</h3>
+                        <p class="font-romantic text-lg text-lightPink mt-1">Chạm nhẹ để mở phong thư kỳ diệu</p>
+                    </div>
+                </div>
+
+                <!-- Professional Parchment Letter Card -->
+                <div id="extractedLetter" class="extracted-letter-pro">
+                    <div class="letter-inner-reveal">
+                        <div>
+                            <div class="flex items-center justify-between border-b border-lightPink/30 pb-2 mb-4">
+                                <span class="text-goldGlow text-sm">✿</span>
+                                <span class="font-serif-title italic text-xs sm:text-sm text-roseGold tracking-[0.2em] uppercase">Thư Chúc Mừng Ngày 20/10</span>
+                                <span class="text-goldGlow text-sm">✿</span>
+                            </div>
+                            <div class="text-center mb-4">
+                                <h2 class="text-xs uppercase tracking-[0.25em] text-roseGold font-serif-title italic">Tôn Vinh Vẻ Đẹp Rạng Rỡ</h2>
+                                <h1 class="text-2xl sm:text-4xl font-serif-title font-bold text-white neon-glow-gold mt-1">Phụ Nữ Việt Nam</h1>
+                            </div>
+                            <div id="typingMessage" class="font-romantic text-2xl sm:text-3xl leading-relaxed text-lightPink whitespace-pre-line max-h-[220px] sm:max-h-[260px] overflow-y-auto pr-2 drop-shadow-md"></div>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-lightPink/30 flex items-center justify-between text-xs sm:text-sm text-roseGold font-serif-title italic">
+                            <span>Thân thương & Trân trọng nhất</span>
+                            <span class="text-goldGlow font-semibold">20/10/2026</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const canvas = document.getElementById('experienceCanvas');
+            const ctx = canvas.getContext('2d', { alpha: false });
+
+            let dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+            function resizeCanvas() {
+                dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                ctx.scale(dpr, dpr);
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Multi-colored Rose Sprites Pre-renderer
+            const SPRITE_SIZE = 80;
+            const NUM_BLOOM_STAGES = 10;
+            const roseSpriteCanvas = document.createElement('canvas');
+            roseSpriteCanvas.width = SPRITE_SIZE * NUM_BLOOM_STAGES;
+            roseSpriteCanvas.height = SPRITE_SIZE;
+            const spriteCtx = roseSpriteCanvas.getContext('2d');
+
+            function preRenderRoseSprites() {
+                for (let stage = 0; stage < NUM_BLOOM_STAGES; stage++) {
+                    let progress = stage / (NUM_BLOOM_STAGES - 1);
+                    let centerX = stage * SPRITE_SIZE + SPRITE_SIZE / 2;
+                    let centerY = SPRITE_SIZE / 2;
+
+                    spriteCtx.save();
+                    spriteCtx.translate(centerX, centerY);
+
+                    const layerPalettes = [
+                        ['#ff1493', '#ff007f', '#ff3366'],
+                        ['#ff6685', '#ff7eb3', '#ffa6c1'],
+                        ['#ffd700', '#ffea75', '#ff9f43'],
+                        ['#e0aaff', '#c77dff', '#9b5de5']
+                    ];
+
+                    for (let l = 0; l < 4; l++) {
+                        let count = 4 + l * 2;
+                        let radius = (12 - l * 2.0) * progress;
+                        let pWidth = (8.5 - l * 1.2) * progress;
+                        let pLength = (17 - l * 2.6) * progress;
+                        let palette = layerPalettes[l % layerPalettes.length];
+
+                        for (let i = 0; i < count; i++) {
+                            spriteCtx.save();
+                            spriteCtx.rotate((i * Math.PI * 2) / count + l * 0.35);
+                            
+                            let grad = spriteCtx.createRadialGradient(0, radius * 0.4, 0, 0, radius * 0.4, pLength);
+                            grad.addColorStop(0, '#ffffff');
+                            grad.addColorStop(0.35, palette[0]);
+                            grad.addColorStop(0.75, palette[1]);
+                            grad.addColorStop(1, palette[2]);
+
+                            spriteCtx.fillStyle = grad;
+                            spriteCtx.beginPath();
+                            spriteCtx.ellipse(0, radius * 0.4, Math.max(0.1, pWidth), Math.max(0.1, pLength), 0, 0, Math.PI * 2);
+                            spriteCtx.fill();
+                            spriteCtx.restore();
+                        }
+                    }
+                    spriteCtx.restore();
+                }
+            }
+            preRenderRoseSprites();
+
+            let state = 'COUNTDOWN';
+            let countdownValue = 3;
+
+            // Interactive sound pops
+            let audioCtx = null;
+            function initAudio() {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+            }
+
+            let bubbles = [];
+            function spawnBubbleExplosion(x, y) {
+                let count = 25;
+                for (let i = 0; i < count; i++) {
+                    let angle = Math.random() * Math.PI * 2;
+                    let speed = 2 + Math.random() * 6;
+                    bubbles.push({
+                        x: x, y: y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed - 1,
+                        radius: 5 + Math.random() * 11,
+                        alpha: 1,
+                        color: `hsl(${Math.random() * 60 + 320}, 100%, 75%)`,
+                        life: 0,
+                        maxLife: 45
+                    });
+                }
+            }
+
+            // Outer floating hearts setup
+            const decorHeartsContainer = document.getElementById('decorHeartsLayer');
+            function setupOuterDecorHearts() {
+                decorHeartsContainer.innerHTML = '';
+                for (let i = 0; i < 12; i++) {
+                    let heart = document.createElement('div');
+                    heart.className = 'decor-heart';
+                    let isLeft = Math.random() < 0.5;
+                    heart.style.left = `${isLeft ? (2 + Math.random() * 18) : (80 + Math.random() * 18)}vw`;
+                    heart.style.top = `${10 + Math.random() * 80}vh`;
+                    heart.style.animationDelay = `${Math.random() * 3}s`;
+                    heart.innerHTML = `<svg class="w-8 h-8 text-pink-400 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+                    heart.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        let rect = heart.getBoundingClientRect();
+                        spawnBubbleExplosion(rect.left + rect.width/2, rect.top + rect.height/2);
+                        heart.style.transform = 'scale(0)';
+                        setTimeout(() => {
+                            heart.style.left = `${Math.random() < 0.5 ? (2 + Math.random() * 18) : (80 + Math.random() * 18)}vw`;
+                            heart.style.top = `${10 + Math.random() * 80}vh`;
+                            heart.style.transform = 'scale(1)';
+                        }, 1200);
+                    });
+                    decorHeartsContainer.appendChild(heart);
+                }
+            }
+            setupOuterDecorHearts();
+
+            // Garden Trees Setup
+            let gardenTrees = [];
+            function initGardenTrees() {
+                gardenTrees = [];
+                let count = 11;
+                let spacing = window.innerWidth / (count + 1);
+                for (let i = 0; i < count; i++) {
+                    gardenTrees.push({
+                        x: spacing * (i + 1) + (Math.random() * 30 - 15),
+                        height: 95 + Math.random() * 65,
+                        growth: 0,
+                        bloomProgress: 0
+                    });
+                }
+            }
+            initGardenTrees();
+
+            // 3D Heart Formation Particles Gathering to Center
+            let heartPoints = [];
+            function generateHeartPoints() {
+                heartPoints = [];
+                let total = 260;
+                let scale = Math.min(window.innerWidth, window.innerHeight) * 0.016;
+                let centerX = window.innerWidth / 2;
+                let centerY = window.innerHeight / 2 - 40;
+
+                for (let i = 0; i < total; i++) {
+                    let t = (i / total) * Math.PI * 2;
+                    let x = 16 * Math.pow(Math.sin(t), 3);
+                    let y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+                    
+                    let targetX = centerX + x * scale;
+                    let targetY = centerY + y * scale;
+
+                    let angle = Math.random() * Math.PI * 2;
+                    let dist = Math.max(window.innerWidth, window.innerHeight) * (0.6 + Math.random() * 0.4);
+
+                    heartPoints.push({
+                        targetX: targetX,
+                        targetY: targetY,
+                        currentX: centerX + Math.cos(angle) * dist,
+                        currentY: centerY + Math.sin(angle) * dist,
+                        size: 3.5 + Math.random() * 3,
+                        pulseOffset: Math.random() * Math.PI * 2
+                    });
+                }
+            }
+            generateHeartPoints();
+
+            window.addEventListener('click', (e) => {
+                initAudio();
+                spawnBubbleExplosion(e.clientX, e.clientY);
+            });
+
+            // Countdown Logic
+            const countdownDisplay = document.getElementById('countdownDisplay');
+            const countdownSubtitle = document.getElementById('countdownSubtitle');
+            const countdownContainer = document.getElementById('countdownContainer');
+            const catLoadingContainer = document.getElementById('catLoadingContainer');
+            const catProgressBar = document.getElementById('catProgressBar');
+            const catTimerText = document.getElementById('catTimerText');
+            const formationStatus = document.getElementById('formationStatus');
+            const envelopeSection = document.getElementById('envelopeSection');
+
+            let countdownTimer = setInterval(() => {
+                countdownValue--;
+                if (countdownValue > 0) {
+                    countdownDisplay.textContent = countdownValue;
+                    if (countdownValue === 2) countdownSubtitle.textContent = '2 - Trao trọn chân thành...';
+                    if (countdownValue === 1) countdownSubtitle.textContent = '1 - Rạng rỡ đóa hoa...';
+                } else {
+                    clearInterval(countdownTimer);
+                    startCatLoadingStage();
+                }
+            }, 1000);
+
+            let catProgress = 0;
+            function startCatLoadingStage() {
+                state = 'CAT_LOADING';
+                countdownContainer.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    countdownContainer.style.display = 'none';
+                    catLoadingContainer.classList.remove('opacity-0', 'pointer-events-none');
+                    catLoadingContainer.classList.add('scale-100');
+                }, 500);
+
+                let catTimer = setInterval(() => {
+                    catProgress += 2.5;
+                    catProgressBar.style.width = `${Math.min(100, catProgress)}%`;
+                    catTimerText.textContent = `Đang tải hoa nở... ${Math.min(100, Math.floor(catProgress))}%`;
+
+                    gardenTrees.forEach(tree => {
+                        tree.growth = Math.min(1, catProgress / 65);
+                        if (catProgress > 35) tree.bloomProgress = Math.min(1, (catProgress - 35) / 55);
+                    });
+
+                    if (catProgress >= 100) {
+                        clearInterval(catTimer);
+                        setTimeout(startHeartFormationStage, 400);
+                    }
+                }, 60);
+            }
+
+            function startHeartFormationStage() {
+                state = 'HEART_FORMATION';
+                catLoadingContainer.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    catLoadingContainer.style.display = 'none';
+                    formationStatus.classList.remove('hidden');
+                    setTimeout(() => formationStatus.classList.remove('opacity-0'), 100);
+                }, 500);
+
+                setTimeout(startEnvelopeStage, 3800);
+            }
+
+            function startEnvelopeStage() {
+                state = 'ENVELOPE';
+                envelopeSection.classList.remove('opacity-0', 'pointer-events-none');
+                envelopeSection.classList.add('scale-100');
+            }
+
+            // 3D Card Parallax Hover Effect
+            const envelope3DCard = document.getElementById('envelope3DCard');
+            const interactiveEnvelope = document.getElementById('interactiveEnvelope');
+            const typingMessage = document.getElementById('typingMessage');
+            let hasOpenedEnvelope = false;
+
+            window.addEventListener('mousemove', (e) => {
+                if (state !== 'ENVELOPE' || hasOpenedEnvelope) return;
+                let xRatio = (e.clientX / window.innerWidth - 0.5) * 2;
+                let yRatio = (e.clientY / window.innerHeight - 0.5) * 2;
+                envelope3DCard.style.transform = `rotateY(${xRatio * 18}deg) rotateX(${-yRatio * 18}deg)`;
+            });
+
+            const letterText = "Thân gửi những người phụ nữ tuyệt vời nhất!\n\nNhân ngày 20/10, chúc bạn luôn rạng rỡ như những đóa hoa hồng thắm, ngập tràn niềm vui, hạnh phúc và luôn được yêu thương trọn vẹn mỗi ngày!";
+
+            interactiveEnvelope.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (hasOpenedEnvelope) return;
+                hasOpenedEnvelope = true;
+                initAudio();
+                spawnBubbleExplosion(window.innerWidth / 2, window.innerHeight / 2);
+
+                interactiveEnvelope.classList.add('opening');
+
+                setTimeout(() => {
+                    let charIndex = 0;
+                    typingMessage.textContent = '';
+                    let typeTimer = setInterval(() => {
+                        typingMessage.textContent += letterText.charAt(charIndex);
+                        charIndex++;
+                        if (charIndex >= letterText.length) clearInterval(typeTimer);
+                    }, 35);
+                }, 850);
+            });
+
+            let time = 0;
+            function render() {
+                time += 0.03;
+
+                let bgGrad = ctx.createRadialGradient(
+                    canvas.width / 2, canvas.height * 0.45, 15,
+                    canvas.width / 2, canvas.height * 0.5, canvas.width * 0.85
+                );
+                bgGrad.addColorStop(0, '#ff758c');
+                bgGrad.addColorStop(0.35, '#ff4d6d');
+                bgGrad.addColorStop(0.7, '#c9184a');
+                bgGrad.addColorStop(1, '#4a0018');
+
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Render Blooming Garden Trees
+                let groundY = window.innerHeight;
+                gardenTrees.forEach(tree => {
+                    if (tree.growth > 0) {
+                        ctx.save();
+                        ctx.strokeStyle = '#4a7c43';
+                        ctx.lineWidth = 3.5;
+                        ctx.beginPath();
+                        ctx.moveTo(tree.x, groundY);
+                        let currentH = tree.height * tree.growth;
+                        ctx.quadraticCurveTo(tree.x + Math.sin(time + tree.x) * 12, groundY - currentH / 2, tree.x, groundY - currentH);
+                        ctx.stroke();
+
+                        let bloomScale = (state === 'CAT_LOADING') ? tree.bloomProgress : 1;
+                        if (bloomScale > 0) {
+                            let stageIdx = Math.min(NUM_BLOOM_STAGES - 1, Math.floor(bloomScale * (NUM_BLOOM_STAGES - 1)));
+                            let spriteX = stageIdx * SPRITE_SIZE;
+                            let flowerY = groundY - currentH;
+
+                            ctx.drawImage(
+                                roseSpriteCanvas,
+                                spriteX, 0, SPRITE_SIZE, SPRITE_SIZE,
+                                tree.x - SPRITE_SIZE / 2, flowerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE
+                            );
+                        }
+                        ctx.restore();
+                    }
+                });
+
+                // Render Convergence Particle Heart
+                if (state === 'HEART_FORMATION' || state === 'ENVELOPE') {
+                    heartPoints.forEach(p => {
+                        p.currentX += (p.targetX - p.currentX) * 0.06;
+                        p.currentY += (p.targetY - p.currentY) * 0.06;
+
+                        let pulse = Math.sin(time * 2.5 + p.pulseOffset) * 1.8;
+                        ctx.save();
+                        ctx.fillStyle = '#ff3366';
+                        ctx.shadowColor = '#ffd700';
+                        ctx.shadowBlur = 15;
+                        ctx.beginPath();
+                        ctx.arc(p.currentX, p.currentY, Math.max(1.5, p.size + pulse), 0, Math.PI * 2);
+                        ctx.fill();
+
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.arc(p.currentX, p.currentY, Math.max(0.5, (p.size + pulse) * 0.4), 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+                    });
+                }
+
+                // Render Bubble Explosions
+                for (let i = bubbles.length - 1; i >= 0; i--) {
+                    let b = bubbles[i];
+                    b.x += b.vx; b.y += b.vy; b.life++;
+                    b.alpha = 1 - (b.life / b.maxLife);
+
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, b.alpha);
+                    ctx.strokeStyle = b.color;
+                    ctx.lineWidth = 1.6;
+                    ctx.beginPath();
+                    ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    if (b.life >= b.maxLife) bubbles.splice(i, 1);
+                }
+
+                requestAnimationFrame(render);
+            }
+
+            render();
+        });
+    </script>
+</body>
+</html>
